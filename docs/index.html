@@ -19,6 +19,14 @@
       id="result"
       class="mt-4 p-3 bg-white border rounded text-gray-700 whitespace-pre-wrap break-words overflow-auto"
     ></div>
+    
+    <button 
+      id="copyButton"
+      class="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none"
+      onclick="copyOutput()"
+    >
+      Copy
+    </button>
   </div>
 
   <script>
@@ -40,6 +48,11 @@
       } else {
         output.textContent = btoa(trimmed);
       }
+    }
+
+    function copyOutput() {
+      const resultText = document.getElementById("result").textContent;
+      navigator.clipboard.writeText(resultText);
     }
   </script>
 </body>
